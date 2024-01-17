@@ -206,6 +206,8 @@ class ArrowChunkedArray {
  * @brief Arrow container for a list of chunked arrays.
  */
 class ArrowTable {
+  const ArrowArray* chunks_ptr_;
+  const ArrowSchema* schema_ptr_;
   std::vector<ArrowChunkedArray> columns_;
 
  public:
@@ -217,6 +219,9 @@ class ArrowTable {
    * @param schema The schema for all chunks.
    */
   inline ArrowTable(int64_t n_chunks, const ArrowArray* chunks, const ArrowSchema* schema) {
+    chunks_ptr_ = chunks;
+    schema_ptr_ = schema;
+
     columns_.reserve(schema->n_children);
     for (int64_t j = 0; j < schema->n_children; ++j) {
       std::vector<const ArrowArray*> children_chunks;
@@ -226,6 +231,15 @@ class ArrowTable {
         children_chunks.push_back(chunks[k].children[j]);
       }
       columns_.emplace_back(children_chunks, schema->children[j]);
+    }
+  }
+
+  inline ~ArrowTable() {
+    if (chunks_ptr_->release) {
+      chunks_ptr_->release((ArrowArray*)chunks_ptr_);
+    }
+    if (schema_ptr_->release) {
+      schema_ptr_->release((ArrowSchema*)schema_ptr_);
     }
   }
 

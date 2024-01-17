@@ -131,6 +131,8 @@ def dummy_dataset_params() -> Dict[str, Any]:
         (lambda: generate_nullable_arrow_table(), dummy_dataset_params()),
         (lambda: generate_random_arrow_table(3, 1000, 42), {}),
         (lambda: generate_random_arrow_table(100, 10000, 43), {}),
+        # Additional test case with large matrix s.t. CI tests fail with OOM if anything leaks
+        (lambda: generate_random_arrow_table(100, 1000000, 43), {}),
     ],
 )
 def test_dataset_construct_fuzzy(tmp_path, arrow_table_fn, dataset_params):
