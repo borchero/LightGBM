@@ -7,7 +7,7 @@ dependencies:
   - matplotlib
   - memray
   - numpy
-  - polars
+  # - polars
   - psutil
   - pyarrow
   - pytest =7.4.4
@@ -15,3 +15,7 @@ dependencies:
   - python-graphviz
   - scikit-learn
   - scipy
+  - cffi
+  - maturin
+  - make
+  - cmake
