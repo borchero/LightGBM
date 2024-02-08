@@ -1622,7 +1622,7 @@ class _InnerPredictor:
         if n_preds != out_num_preds.value:
             raise ValueError("Wrong length for predict results")
         return preds, nrow
-    
+
     def __pred_for_pyarrow_table(
         self,
         table: pa_Table,

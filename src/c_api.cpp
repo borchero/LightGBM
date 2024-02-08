@@ -1587,6 +1587,7 @@ int LGBM_DatasetCreateFromArrow(int64_t n_chunks,
 
   // Prepare the Arrow data
   ArrowTable table(n_chunks, chunks, schema);
+  std::cerr << "Prepared arrow data, let's go..." << std::endl;
 
   // Initialize the dataset
   if (reference == nullptr) {

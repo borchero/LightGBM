@@ -9,6 +9,7 @@
 #define LIGHTGBM_ARROW_H_
 
 #include <algorithm>
+#include <iostream>
 #include <cstdint>
 #include <functional>
 #include <iterator>
@@ -234,14 +235,16 @@ class ArrowTable {
     }
   }
 
-  inline ~ArrowTable() {
-    if (chunks_ptr_->release) {
-      chunks_ptr_->release((ArrowArray*)chunks_ptr_);
-    }
-    if (schema_ptr_->release) {
-      schema_ptr_->release((ArrowSchema*)schema_ptr_);
-    }
-  }
+  // inline ~ArrowTable() {
+  //   std::cerr << "Chunks release: " << chunks_ptr_->release << std::endl;
+  //   std::cerr << "Schema release: " << schema_ptr_->release << std::endl;
+  //   if (chunks_ptr_->release) {
+  //     chunks_ptr_->release((ArrowArray*)chunks_ptr_);
+  //   }
+  //   if (schema_ptr_->release) {
+  //     schema_ptr_->release((ArrowSchema*)schema_ptr_);
+  //   }
+  // }
 
   /**
    * @brief Get the number of rows in the table.

@@ -1,6 +1,6 @@
 # CRAN Submission History
 
-## v4.2.0 - Submission 1 - (December 7, 2023)
+## v4.3.0 - Submission 1 - (December 7, 2023)
 
 ### CRAN response
 
@@ -80,7 +80,7 @@ Attempted to fix these with https://github.com/microsoft/LightGBM/pull/5988 and 
 >
 > Flavor: r-devel-windows-x86_64
 > Check: OOverall checktime, Result: NOTE
->  Overall checktime 14 min > 10 min
+> Overall checktime 14 min > 10 min
 >
 > but the maintainer cannot do much to reduce this, so I triggered revdep checks now.
 > Please reply to the archival message in case the issue is not fixable easily.
@@ -110,7 +110,7 @@ Submitted with the following comment.
 > This submission includes patches to address the following warnings observed on the fedora and debian CRAN checks.
 
 > Found the following significant warnings:
->  io/json11.cpp:207:47: warning: unqualified call to 'std::move' [-Wunqualified-std-cast-call]
+> io/json11.cpp:207:47: warning: unqualified call to 'std::move' [-Wunqualified-std-cast-call]
 > io/json11.cpp:216:51: warning: unqualified call to 'std::move' [-Wunqualified-std-cast-call]
 > io/json11.cpp:225:53: warning: unqualified call to 'std::move' [-Wunqualified-std-cast-call]
 > io/json11.cpp:268:60: warning: unqualified call to 'std::move' [-Wunqualified-std-cast-call]
@@ -156,8 +156,9 @@ Submitted with the following comment:
 > Per CRAN's policies, I am submitting on it on behalf of the project's maintainer (Yu Shi), with his permission (https://github.com/microsoft/LightGBM/pull/5525).
 
 > This submission includes two patches:
-> * a change to testing to avoid a failed test related to non-ASCII strings on the `r-devel-linux-x86_64-debian-clang` check flavor (https://github.com/microsoft/LightGBM/pull/5526)
-> * modifications to allow compatibility with the RTools42 build toolchain (https://github.com/microsoft/LightGBM/pull/5503)
+>
+> - a change to testing to avoid a failed test related to non-ASCII strings on the `r-devel-linux-x86_64-debian-clang` check flavor (https://github.com/microsoft/LightGBM/pull/5526)
+> - modifications to allow compatibility with the RTools42 build toolchain (https://github.com/microsoft/LightGBM/pull/5503)
 
 > Thank you very much for your time and consideration.
 
@@ -290,8 +291,8 @@ CRAN completed its checks and preparation of binaries on November 6, 2021.
 
 Submitted v3.3.1 to CRAN, with the following fixes for the issues that caused CRAN to reject v3.3.0 and archive the package:
 
-* https://github.com/microsoft/LightGBM/pull/4673
-* https://github.com/microsoft/LightGBM/pull/4714
+- https://github.com/microsoft/LightGBM/pull/4673
+- https://github.com/microsoft/LightGBM/pull/4714
 
 Submitted with the following comment:
 
@@ -345,9 +346,9 @@ Accepted to CRAN.
 
 Package is failing checks in the `r-devel-linux-x86_64-debian-clang` environment (described [here](https://cran.r-project.org/web/checks/check_flavors.html#r-devel-linux-x86_64-debian-clang)). Specifically, one unit test on the use of non-ASCII feature names in `Booster$dump_model()` fails.
 
-> Apparently your package fails its checks in a strict Latin-1* locale,
-e.g. under Linux using LANG=en_US.iso88591 (see the debian-clang
-results).
+> Apparently your package fails its checks in a strict Latin-1\* locale,
+> e.g. under Linux using LANG=en_US.iso88591 (see the debian-clang
+> results).
 
 > Please correct before 2021-04-21 to safely retain your package on CRAN.
 
@@ -552,18 +553,18 @@ Added a patch that `psutil` has used to fix missing `ifaddrs.h` on Solaris 10: h
 ### CRAN Response
 
 > Thanks, if the running time is the only reason to wrap the examples in
-\donttest, please replace \donttest by \donttest (\donttest examples are
-not executed in the CRAN checks).
+> \donttest, please replace \donttest by \donttest (\donttest examples are
+> not executed in the CRAN checks).
 
 > Please replace cat() by message() or warning() in your functions (except
-for print() and summary() functions). Messages and warnings can be
-suppressed if needed.
+> for print() and summary() functions). Messages and warnings can be
+> suppressed if needed.
 
 > Missing Rd-tags:
-  lightgbm/man/dimnames.lgb.Dataset.Rd: \value
-  lightgbm/man/lgb.Dataset.construct.Rd: \value
-  lightgbm/man/lgb.prepare.Rd: \value
-  ...
+> lightgbm/man/dimnames.lgb.Dataset.Rd: \value
+> lightgbm/man/lgb.Dataset.construct.Rd: \value
+> lightgbm/man/lgb.prepare.Rd: \value
+> ...
 
 > Please add the tag and explain in detail the returned objects.
 
@@ -584,7 +585,7 @@ All exported objects now have `\value{}` statements in their documentation files
 > Thank you for your comments. I've just created a new submission that I believe addresses them.
 
 > Can you help us understand something? In your message you said "\donttest examples are
-not executed in the CRAN checks)", but in https://cran.r-project.org/doc/manuals/r-devel/NEWS.html  we see the following:
+> not executed in the CRAN checks)", but in https://cran.r-project.org/doc/manuals/r-devel/NEWS.html we see the following:
 
 > > "`R CMD check --as-cran` now runs \donttest examples (which are run by example()) instead of instructing the tester to do so. This can be temporarily circumvented during development by setting environment variable `_R_CHECK_DONTTEST_EXAMPLES_` to a false value."
 
@@ -594,21 +595,21 @@ not executed in the CRAN checks)", but in https://cran.r-project.org/doc/manuals
 
 ### CRAN response
 
-* Please write references in the description of the DESCRIPTION file in
-the form
+- Please write references in the description of the DESCRIPTION file in
+  the form
   - authors (year) doi:...
   - authors (year) arXiv:...
   - authors (year, ISBN:...)
-* if those are not available: authors (year) https:... with no space after 'doi:', 'arXiv:', 'https:' and angle brackets for auto-linking.
-* (If you want to add a title as well please put it in quotes: "Title")
+- if those are not available: authors (year) https:... with no space after 'doi:', 'arXiv:', 'https:' and angle brackets for auto-linking.
+- (If you want to add a title as well please put it in quotes: "Title")
 
-* \donttest{} should only be used if the example really cannot be executed (e.g. because of missing additional software, missing API keys, ...) by the user. That's why wrapping examples in \donttest{} adds the comment ("# Not run:") as a warning for the user. Does not seem necessary. Please unwrap the examples if they are executable in < 5 sec, or replace
-\donttest{} with \donttest{}.
+- \donttest{} should only be used if the example really cannot be executed (e.g. because of missing additional software, missing API keys, ...) by the user. That's why wrapping examples in \donttest{} adds the comment ("# Not run:") as a warning for the user. Does not seem necessary. Please unwrap the examples if they are executable in < 5 sec, or replace
+  \donttest{} with \donttest{}.
 
-* Please do not modify the global environment (e.g. by using <<-) in your
-functions. This is not allowed by the CRAN policies.
+- Please do not modify the global environment (e.g. by using <<-) in your
+  functions. This is not allowed by the CRAN policies.
 
-* Please always add all authors, contributors and copyright holders in the Authors@R field with the appropriate roles. From CRAN policies you agreed to: "The ownership of copyright and intellectual property rights of all components of the package must be clear and unambiguous (including from the authors specification in the DESCRIPTION file). Where code is copied (or derived) from the work of others (including from R itself), care must be taken that any copyright/license statements are preserved and authorship is not misrepresented." e.g.: Microsoft Corporation, Dropbox Inc. Please explain in the submission comments what you did about this issue.
+- Please always add all authors, contributors and copyright holders in the Authors@R field with the appropriate roles. From CRAN policies you agreed to: "The ownership of copyright and intellectual property rights of all components of the package must be clear and unambiguous (including from the authors specification in the DESCRIPTION file). Where code is copied (or derived) from the work of others (including from R itself), care must be taken that any copyright/license statements are preserved and authorship is not misrepresented." e.g.: Microsoft Corporation, Dropbox Inc. Please explain in the submission comments what you did about this issue.
 
 Please fix and resubmit
 
@@ -616,7 +617,7 @@ Please fix and resubmit
 
 Responded to CRAN with the following:
 
-The paper citation has been adjusted as requested. We were using 'glmnet' as a  guide on how to include the URL but maybe they are no longer in compliance with CRAN policies: https://github.com/cran/glmnet/blob/b1a4b50de01e0cd24343959d7cf86452bac17b26/DESCRIPTION
+The paper citation has been adjusted as requested. We were using 'glmnet' as a guide on how to include the URL but maybe they are no longer in compliance with CRAN policies: https://github.com/cran/glmnet/blob/b1a4b50de01e0cd24343959d7cf86452bac17b26/DESCRIPTION
 
 All authors from the original LightGBM paper have been added to Authors@R as `"aut"`. We have also added Microsoft and DropBox, Inc. as `"cph"` (copyright holders). These roles were chosen based on the guidance in https://journal.r-project.org/archive/2012-1/RJournal_2012-1_Hornik~et~al.pdf.
 
@@ -636,51 +637,51 @@ Failing pre-checks.
 
 ### `R CMD check` results
 
-* Debian: 2 NOTEs
+- Debian: 2 NOTEs
 
-    ```text
-    * checking CRAN incoming feasibility ... NOTE
-    Maintainer: 'Guolin Ke <guolin.ke@microsoft.com>'
+  ```text
+  * checking CRAN incoming feasibility ... NOTE
+  Maintainer: 'Guolin Ke <guolin.ke@microsoft.com>'
 
-    New submission
+  New submission
 
-    Possibly mis-spelled words in DESCRIPTION:
-      Guolin (13:52)
-      Ke (13:48)
-      LightGBM (14:20)
-      al (13:62)
-      et (13:59)
+  Possibly mis-spelled words in DESCRIPTION:
+    Guolin (13:52)
+    Ke (13:48)
+    LightGBM (14:20)
+    al (13:62)
+    et (13:59)
 
-    * checking top-level files ... NOTE
-    Non-standard files/directories found at top level:
-      'docs' 'lightgbm-hex-logo.png' 'lightgbm-hex-logo.svg'
-    ```
+  * checking top-level files ... NOTE
+  Non-standard files/directories found at top level:
+    'docs' 'lightgbm-hex-logo.png' 'lightgbm-hex-logo.svg'
+  ```
 
-* Windows: 2 NOTEs
+- Windows: 2 NOTEs
 
-    ```text
-    * checking CRAN incoming feasibility ... NOTE
-    Maintainer: 'Guolin Ke <guolin.ke@microsoft.com>'
+  ```text
+  * checking CRAN incoming feasibility ... NOTE
+  Maintainer: 'Guolin Ke <guolin.ke@microsoft.com>'
 
-    New submission
+  New submission
 
-    Possibly mis-spelled words in DESCRIPTION:
-      Guolin (13:52)
-      Ke (13:48)
-      LightGBM (14:20)
-      al (13:62)
-      et (13:59)
+  Possibly mis-spelled words in DESCRIPTION:
+    Guolin (13:52)
+    Ke (13:48)
+    LightGBM (14:20)
+    al (13:62)
+    et (13:59)
 
-    * checking top-level files ... NOTE
-    Non-standard files/directories found at top level:
-      'docs' 'lightgbm-hex-logo.png' 'lightgbm-hex-logo.svg'
-    ```
+  * checking top-level files ... NOTE
+  Non-standard files/directories found at top level:
+    'docs' 'lightgbm-hex-logo.png' 'lightgbm-hex-logo.svg'
+  ```
 
 ### Maintainer Notes
 
 We should tell them the misspellings note is a false positive.
 
-For the note about included files, that is my fault. I had extra files laying around when I generated the package. I'm surprised to see `docs/` in that list, since it is ignored in  `.Rbuildignore`. I even tested that with [the exact code Rbuildignore uses](https://github.com/wch/r-source/blob/9d13622f41cfa0f36db2595bd6a5bf93e2010e21/src/library/tools/R/build.R#L85). For now, I added `rm -r  docs/` to `build-cran-package.sh`. We can figure out what is happening with `.Rbuildignore` in the future, but it shouldn't block a release.
+For the note about included files, that is my fault. I had extra files laying around when I generated the package. I'm surprised to see `docs/` in that list, since it is ignored in `.Rbuildignore`. I even tested that with [the exact code Rbuildignore uses](https://github.com/wch/r-source/blob/9d13622f41cfa0f36db2595bd6a5bf93e2010e21/src/library/tools/R/build.R#L85). For now, I added `rm -r  docs/` to `build-cran-package.sh`. We can figure out what is happening with `.Rbuildignore` in the future, but it shouldn't block a release.
 
 ## v3.0.0 - Submission 1 - (August 24, 2020)
 
@@ -696,29 +697,29 @@ NOTE: 3.0.0-1 was never released to CRAN. CRAN was on vacation August 14-24, 202
 
 ### `R CMD check` results
 
-* Debian: 1 NOTE
+- Debian: 1 NOTE
 
-    ```text
-    * checking CRAN incoming feasibility ... NOTE
-    Maintainer: ‘Guolin Ke <guolin.ke@microsoft.com>’
+  ```text
+  * checking CRAN incoming feasibility ... NOTE
+  Maintainer: ‘Guolin Ke <guolin.ke@microsoft.com>’
 
-    New submission
+  New submission
 
-    License components with restrictions and base license permitting such:
-      MIT + file LICENSE
-    ```
+  License components with restrictions and base license permitting such:
+    MIT + file LICENSE
+  ```
 
-* Windows: 1 NOTE
+- Windows: 1 NOTE
 
-    ```text
-    * checking CRAN incoming feasibility ... NOTE
-    Maintainer: 'Guolin Ke <guolin.ke@microsoft.com>'
+  ```text
+  * checking CRAN incoming feasibility ... NOTE
+  Maintainer: 'Guolin Ke <guolin.ke@microsoft.com>'
 
-    New submission
+  New submission
 
-    License components with restrictions and base license permitting such:
-      MIT + file LICENSE
-    ```
+  License components with restrictions and base license permitting such:
+    MIT + file LICENSE
+  ```
 
 ### Maintainer Notes
 
@@ -739,48 +740,48 @@ Failing pre-checks.
 
 ### `R CMD check` results
 
-* Debian: 1 NOTE
+- Debian: 1 NOTE
 
-    ```text
-    * checking CRAN incoming feasibility ... NOTE
-    Maintainer: ‘Guolin Ke <guolin.ke@microsoft.com>’
+  ```text
+  * checking CRAN incoming feasibility ... NOTE
+  Maintainer: ‘Guolin Ke <guolin.ke@microsoft.com>’
 
-    New submission
+  New submission
 
-    License components with restrictions and base license permitting such:
-      MIT + file LICENSE
-    ```
+  License components with restrictions and base license permitting such:
+    MIT + file LICENSE
+  ```
 
-* Windows: 1 ERROR, 1 NOTE
+- Windows: 1 ERROR, 1 NOTE
 
-    ```text
-    * checking CRAN incoming feasibility ... NOTE
-    Maintainer: ‘Guolin Ke <guolin.ke@microsoft.com>’
+  ```text
+  * checking CRAN incoming feasibility ... NOTE
+  Maintainer: ‘Guolin Ke <guolin.ke@microsoft.com>’
 
-    New submission
+  New submission
 
-    License components with restrictions and base license permitting such:
-      MIT + file LICENSE
+  License components with restrictions and base license permitting such:
+    MIT + file LICENSE
 
-    ** running tests for arch 'i386' ... [9s] ERROR
-      Running 'testthat.R' [8s]
-    Running the tests in 'tests/testthat.R' failed.
-    Complete output:
-      > library(testthat)
-      > library(lightgbm)
-      Loading required package: R6
-      >
-      > test_check(
-      +     package = "lightgbm"
-      +     , stop_on_failure = TRUE
-      +     , stop_on_warning = FALSE
-      + )
-      -- 1. Error: predictions do not fail for integer input (@test_Predictor.R#7)  --
-      lgb.Dataset.construct: cannot create Dataset handle
-      Backtrace:
-       1. lightgbm::lgb.train(...)
-       2. data$construct()
-    ```
+  ** running tests for arch 'i386' ... [9s] ERROR
+    Running 'testthat.R' [8s]
+  Running the tests in 'tests/testthat.R' failed.
+  Complete output:
+    > library(testthat)
+    > library(lightgbm)
+    Loading required package: R6
+    >
+    > test_check(
+    +     package = "lightgbm"
+    +     , stop_on_failure = TRUE
+    +     , stop_on_warning = FALSE
+    + )
+    -- 1. Error: predictions do not fail for integer input (@test_Predictor.R#7)  --
+    lgb.Dataset.construct: cannot create Dataset handle
+    Backtrace:
+     1. lightgbm::lgb.train(...)
+     2. data$construct()
+  ```
 
 ### Maintainer Notes
 
@@ -796,42 +797,42 @@ Failing pre-checks.
 
 ### `R CMD check` results
 
-* Debian: 2 NOTEs
+- Debian: 2 NOTEs
 
-    ```text
-    * checking CRAN incoming feasibility ... NOTE
-    Maintainer: ‘Guolin Ke <guolin.ke@microsoft.com>’
+  ```text
+  * checking CRAN incoming feasibility ... NOTE
+  Maintainer: ‘Guolin Ke <guolin.ke@microsoft.com>’
 
-    New submission
+  New submission
 
-    License components with restrictions and base license permitting such:
-      MIT + file LICENSE
+  License components with restrictions and base license permitting such:
+    MIT + file LICENSE
 
-    Non-standard files/directories found at top level:
-    ‘cran-comments.md’ ‘docs’
-    ```
+  Non-standard files/directories found at top level:
+  ‘cran-comments.md’ ‘docs’
+  ```
 
-* Windows: 1 ERROR, 2 NOTEs
+- Windows: 1 ERROR, 2 NOTEs
 
-    ```text
-    * checking CRAN incoming feasibility ... NOTE
-    Maintainer: 'Guolin Ke <guolin.ke@microsoft.com>'
+  ```text
+  * checking CRAN incoming feasibility ... NOTE
+  Maintainer: 'Guolin Ke <guolin.ke@microsoft.com>'
 
-    New submission
+  New submission
 
-    License components with restrictions and base license permitting such:
-      MIT + file LICENSE
+  License components with restrictions and base license permitting such:
+    MIT + file LICENSE
 
-    * checking top-level files ... NOTE
-    Non-standard files/directories found at top level:
-      'cran-comments.md' 'docs'
+  * checking top-level files ... NOTE
+  Non-standard files/directories found at top level:
+    'cran-comments.md' 'docs'
 
-    ** checking whether the package can be loaded ... ERROR
-    Loading this package had a fatal error status code 1
-    Loading log:
-    Error: package 'lightgbm' is not installed for 'arch = i386'
-    Execution halted
-    ```
+  ** checking whether the package can be loaded ... ERROR
+  Loading this package had a fatal error status code 1
+  Loading log:
+  Error: package 'lightgbm' is not installed for 'arch = i386'
+  Execution halted
+  ```
 
 ### Maintainer Notes
 
@@ -841,7 +842,7 @@ Seems removing `Biarch` field didn't work. Noticed this in the install logs:
 
 Tried adding `Biarch: true` to `DESCRIPTION` to overcome this.
 
-NOTE about non-standard files was the result of a mistake in `.Rbuildignore` syntax, and something strange with how `cran-comments.md` line in `.Rbuildignore`  was treated. Updated `.Rbuildignore` and added an `rm cran-comments.md` to `build-cran-package.sh`.
+NOTE about non-standard files was the result of a mistake in `.Rbuildignore` syntax, and something strange with how `cran-comments.md` line in `.Rbuildignore` was treated. Updated `.Rbuildignore` and added an `rm cran-comments.md` to `build-cran-package.sh`.
 
 ## v3.0.0-1 - Submission 1 - (August 9, 2020)
 
@@ -851,25 +852,25 @@ Failing pre-checks.
 
 ### `R CMD check` results
 
-* Debian: 1 NOTE
+- Debian: 1 NOTE
 
-    ```text
-    Possibly mis-spelled words in DESCRIPTION:
-      LightGBM (12:88, 19:41, 20:60, 20:264)
-    ```
+  ```text
+  Possibly mis-spelled words in DESCRIPTION:
+    LightGBM (12:88, 19:41, 20:60, 20:264)
+  ```
 
-* Windows: 1 ERROR, 1 NOTE
+- Windows: 1 ERROR, 1 NOTE
 
-    ```text
-    Possibly mis-spelled words in DESCRIPTION:
-      LightGBM (12:88, 19:41, 20:60, 20:264)
+  ```text
+  Possibly mis-spelled words in DESCRIPTION:
+    LightGBM (12:88, 19:41, 20:60, 20:264)
 
-    ** checking whether the package can be loaded ... ERROR
-    Loading this package had a fatal error status code 1
-    Loading log:
-    Error: package 'lightgbm' is not installed for 'arch = i386'
-    Execution halted
-    ```
+  ** checking whether the package can be loaded ... ERROR
+  Loading this package had a fatal error status code 1
+  Loading log:
+  Error: package 'lightgbm' is not installed for 'arch = i386'
+  Execution halted
+  ```
 
 ### Maintainer Notes
 

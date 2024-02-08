@@ -3,6 +3,7 @@ import sys
 import lightgbm as lgb
 import polars as pl
 import psutil
+from pyarrow.cffi import ffi as arrow_cffi
 
 CURRENT_PROCESS = psutil.Process()
 
@@ -34,11 +35,32 @@ def _get_peak_memory_gib() -> float | None:
             return None
 
 
+# df = pl.read_parquet("df.parquet", use_pyarrow=True, memory_map=False)
+# ldf = pl.concat([pl.scan_parquet("df.parquet") for _ in range(10)])
 ldf = pl.scan_parquet("df.parquet")
 
 for _ in range(10):
     log_memory_consumption()
-    ds = lgb.Dataset(ldf.collect().to_arrow())
+    # ds = pl.read_parquet("df.parquet")
+    # ds = ldf.collect().to_arrow()
+    # ds = lgb.Dataset(df.to_arrow())
+    df = ldf.collect()
+    arr = df.to_arrow()
+
+    # export_objects = arr.to_batches()
+    # chunks = arrow_cffi.new("struct ArrowArray[]", len(export_objects))
+    # schema = arrow_cffi.new("struct ArrowSchema*")
+    # for i, obj in enumerate(export_objects):
+    #     chunk_ptr = int(arrow_cffi.cast("uintptr_t", arrow_cffi.addressof(chunks[i])))
+    #     if i == 0:
+    #         schema_ptr = int(arrow_cffi.cast("uintptr_t", schema))
+    #         obj._export_to_c(chunk_ptr, schema_ptr)
+    #     else:
+    #         obj._export_to_c(chunk_ptr)
+
+    ds = lgb.Dataset(arr)
     ds.construct()
+    del df
     del ds
+    del arr
 log_memory_consumption()

@@ -1,0 +1,17 @@
+name: lightgbm
+channels:
+  - conda-forge
+dependencies:
+  - joblib
+  - jupyter
+  - matplotlib
+  - memray
+  - numpy
+  - polars
+  - psutil
+  - pyarrow
+  - pytest =7.4.4
+  - python
+  - python-graphviz
+  - scikit-learn
+  - scipy
